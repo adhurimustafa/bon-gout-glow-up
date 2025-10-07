@@ -108,7 +108,7 @@ const Home = () => {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6"
+                  className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6 transition-all duration-300"
                 >
                   Demander un devis
                 </Button>
