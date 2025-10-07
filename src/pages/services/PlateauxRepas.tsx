@@ -12,10 +12,10 @@ const PlateauxRepas = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Plateaux Repas | Au Bon Goût - Traiteur Gironde</title>
+        <title>Plateaux Repas Gironde | Au Bon Goût - Lapouyade</title>
         <meta
           name="description"
-          content="Plateaux repas gourmands pour vos déjeuners d'affaires, séminaires et événements professionnels en Gironde. Livraison ponctuelle."
+          content="Plateaux repas gourmands pour professionnels en Gironde. Livraison ponctuelle à Cavignac, Marcenais, Laruscade, Saint-Savin, Villegouge et Saint-Denis-de-Pile."
         />
       </Helmet>
 
@@ -74,12 +74,16 @@ const PlateauxRepas = () => {
             <AnimatedSection>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  <strong>Au Bon Goût</strong> vous propose des plateaux repas gourmands et équilibrés, 
-                  parfaits pour vos déjeuners d'affaires, séminaires, formations ou réunions professionnelles.
+                  Offrez-vous un moment de délice avec les services d'<strong>AU BON GOÛT</strong>, situé à 
+                  LAPOUYADE, le traiteur expert en plateaux repas gourmands. Que ce soit pour une réunion 
+                  d'affaires, un événement spécial ou simplement pour agrémenter votre quotidien, notre 
+                  mission est de satisfaire vos papilles avec des options savoureuses et élégamment présentées.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Nos plateaux sont préparés avec des produits frais et de qualité, livrés à l'heure 
-                  souhaitée pour garantir la satisfaction de vos collaborateurs et clients.
+                  Grâce à une livraison soignée couvrant les villes voisines telles que Cavignac, Marcenais, 
+                  Laruscade, Saint-Savin, Villegouge et Saint-Denis-de-Pile, nous combinons proximité 
+                  géographique et excellence culinaire. Chaque repas est soigneusement élaboré avec des 
+                  ingrédients locaux de qualité pour assurer un goût authentique et une fraîcheur optimale.
                 </p>
               </div>
             </AnimatedSection>
@@ -95,16 +99,16 @@ const PlateauxRepas = () => {
               Nos Formules
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {[
-                "Plateaux repas équilibrés et variés",
-                "Formules entrée + plat + dessert",
-                "Options végétariennes disponibles",
-                "Livraison ponctuelle garantie",
-                "Emballages adaptés et pratiques",
-                "Tarifs dégressifs selon quantité",
-                "Service pour entreprises et collectivités",
-                "Commande simple et rapide",
+                "Sélection rigoureuse de produits locaux et de saison",
+                "Menus adaptés intégrant options végétariennes",
+                "Présentation raffinée pour éviter les repas ternes",
+                "Livraison ponctuelle dans toute la Gironde",
+                "Emballage écoresponsable pratique",
+                "Solutions variées : cocktails, buffets, plateaux",
+                "Service attentif de notre équipe",
+                "Rapport qualité-prix optimal",
               ].map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -116,6 +120,37 @@ const PlateauxRepas = () => {
                 >
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mini FAQ */}
+            <div className="mt-16 space-y-4">
+              <h3 className="text-2xl font-bold mb-8 font-playfair">Questions Fréquentes</h3>
+              {[
+                {
+                  q: "Comment garantir la fraîcheur des aliments ?",
+                  a: "Nous sélectionnons rigoureusement nos produits auprès de fournisseurs locaux pour assurer un goût authentique et fraîcheur optimale. En intégrant les ingrédients de qualité, nous vous assurons à la fois fraîcheur et saveur."
+                },
+                {
+                  q: "Proposez-vous des menus personnalisés ?",
+                  a: "Oui, nos menus sont conçus pour répondre à toutes vos attentes. Que ce soit pour un déjeuner végétarien, sans gluten ou allégé, nos chefs créent des options parfaites pour vos événements professionnels ou familiaux."
+                },
+                {
+                  q: "Pourquoi choisir nos services traiteur ?",
+                  a: "Nous offrons une solution complète et efficace. Nos réunions conviviales, événements privés ou réceptions nécessitent une attention particulière aux détails et service adapté à vos attentes. Contactez-nous pour des plateaux repas, buffets froids, ou portage de repas à domicile."
+                },
+              ].map((faq, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.1 }}
+                  className="bg-card p-6 rounded-xl shadow-[var(--shadow-card)]"
+                >
+                  <h4 className="font-semibold mb-2 text-foreground">{faq.q}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                 </motion.div>
               ))}
             </div>

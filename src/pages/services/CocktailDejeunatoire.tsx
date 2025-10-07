@@ -75,11 +75,15 @@ const CocktailDejeunatoire = () => {
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Avec <strong>AU BON GOÛT</strong>, situé à LAPOUYADE, découvrez l'art de sublimer vos 
-                  moments importants grâce à des cocktails déjeunatoires ou dînatoires sur-mesure.
+                  moments importants grâce à des cocktails déjeunatoires ou dînatoires sur-mesure. Spécialiste 
+                  dans la création d'instants gourmands mémorables, nous mettons notre expertise pour vos 
+                  réceptions, qu'il s'agisse de mariages, anniversaires ou moments professionnels.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Nos formules complètes permettent à vos convives de profiter d'un véritable repas 
-                  debout, dans une ambiance conviviale et élégante, parfaite pour tous types d'événements.
+                  Profitez d'un traiteur de proximité pour transformer chaque occasion en une expérience 
+                  unique, où élégance et convivialité se rencontrent. Chaque réception est conçue avec une 
+                  attention particulière. Notre savoir-faire nous permet de proposer des cocktails 
+                  déjeunatoires ou dînatoires adaptés à toutes les attentes.
                 </p>
               </div>
             </AnimatedSection>

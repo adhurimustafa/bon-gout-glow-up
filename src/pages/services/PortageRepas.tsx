@@ -12,10 +12,10 @@ const PortageRepas = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Portage de Repas à Domicile | Au Bon Goût - Gironde</title>
+        <title>Livraison Repas à Domicile | Au Bon Goût - Gironde</title>
         <meta
           name="description"
-          content="Service de portage et livraison de repas à domicile en Gironde. Plats variés et équilibrés livrés directement chez vous."
+          content="Service de livraison de repas à domicile en Gironde. Plats raffinés livrés à Lapouyade, Coutras, Guitres, Cavignac, Izon, Saint-Yzan-de-Soudiac et Abzac."
         />
       </Helmet>
 
@@ -74,14 +74,16 @@ const PortageRepas = () => {
             <AnimatedSection>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Avec une équipe talentueuse et qualifiée, <strong>Au Bon Goût</strong> vous propose 
-                  un service de portage de repas à domicile à Bordeaux et dans tous les départements 
-                  limitrophes de la Gironde.
+                  À la recherche de saveurs exquises livrées directement à votre porte ? 
+                  <strong> AU BON GOÛT</strong>, situé à LAPOUYADE, est votre partenaire culinaire pour 
+                  des repas de qualité supérieure. Grâce à notre service de livraison de repas à domicile, 
+                  nous apportons des plats raffinés et préparés avec soin, directement chez vous.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Nous vous garantissons des prestations de qualité ainsi que des solutions adaptées à vos besoins. 
-                  Menus variés, ingrédients soigneusement sélectionnés, tous nos plats sont préparés avec 
-                  la plus grande attention pour vous offrir une expérience culinaire unique.
+                  Profitez du confort et de la commodité tout en savourant une cuisine d'exception. Notre 
+                  service de livraison s'étend à Lapouyade et à ses environs. Que vous habitiez à Coutras, 
+                  Guitres, Cavignac, Izon-de-LAPOUYADE, Saint-Yzan-de-Soudiac ou Abzac, garantissons un 
+                  service ponctuel et de qualité professionnelle.
                 </p>
               </div>
             </AnimatedSection>
@@ -97,16 +99,16 @@ const PortageRepas = () => {
               Nos Avantages
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {[
-                "Menus variés et équilibrés",
-                "Livraison à domicile ponctuelle",
-                "Ingrédients frais et de qualité",
-                "Plats préparés avec soin",
-                "Service adapté aux seniors",
-                "Formules flexibles",
-                "Intervention en Gironde et départements limitrophes",
-                "Prix compétitifs",
+                "Service culinaire adapté aux seniors et personnes à mobilité réduite",
+                "Technologie de transport avancée préservant fraîcheur",
+                "Accompagnement anticipe personnalisé",
+                "Gestion logistique experte et planification précise",
+                "Ateliers culinaires et conseils techniques",
+                "Recommandations ponctuelles sublimant chaque plat",
+                "Menus incluant options végétariennes et sans gluten",
+                "Saveur et qualité professionnelle garanties",
               ].map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -118,6 +120,37 @@ const PortageRepas = () => {
                 >
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mini FAQ */}
+            <div className="mt-16 space-y-4">
+              <h3 className="text-2xl font-bold mb-8 font-playfair">Questions Fréquentes</h3>
+              {[
+                {
+                  q: "La fraîcheur est-elle garantie ?",
+                  a: "Chaque plat est élaboré avec des ingrédients frais puis transporté dans des véhicules réfrigérés assurant un respect total de la chaîne du froid, préservant la fraîcheur et les arômes des préparations jusqu'à votre livraison."
+                },
+                {
+                  q: "Une prestation sur-mesure pour vos événements ?",
+                  a: "AU BON GOÛT vous accompagne lors de vos occasions spéciales : mariages, anniversaires, réceptions professionnelles. Nous proposons menus variés personnalisables, plateaux savoureux et service de portage de repas à domicile, parfait pour allier pratique et raffinement."
+                },
+                {
+                  q: "Pourquoi choisir AU BON GOÛT ?",
+                  a: "Notre expertise transforme les repas en véritables expériences gastronomiques grâce à une maîtrise des processus, solutions techniques adaptées à vos besoins. Avec des repas frais et savoureux, vous profiterez d'une cuisine accessible adaptée à tous."
+                },
+              ].map((faq, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.1 }}
+                  className="bg-card p-6 rounded-xl shadow-[var(--shadow-card)]"
+                >
+                  <h4 className="font-semibold mb-2 text-foreground">{faq.q}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                 </motion.div>
               ))}
             </div>

@@ -74,12 +74,15 @@ const NosSpecialites = () => {
             <AnimatedSection>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Découvrez les spécialités gourmandes de <strong>AU BON GOÛT</strong>, votre traiteur 
-                  incontournable dans le département de la Gironde, en région Nouvelle-Aquitaine.
+                  Découvrez les spécialités gourmandes d'<strong>AU BON GOÛT</strong>, votre traiteur 
+                  incontournable en Gironde. Nous sublimerons vos événements grâce à des prestations 
+                  sur-mesure, alliant saveurs authentiques et présentation soignée.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Nos chefs passionnés créent des plats raffinés qui allient tradition et innovation, 
-                  pour ravir vos papilles et celles de vos convives lors de tous vos événements.
+                  Que ce soit pour un mariage, un anniversaire ou un cocktail dînatoire, notre expertise 
+                  garantit une expérience culinaire inoubliable. Basés à LAPOUYADE, nous intervenons dans 
+                  tous les départements limitrophes : Libourne, Saint-André-de-Cubzac, Coutras, Izon, 
+                  Saint-Denis-de-Pile et Galgon.
                 </p>
               </div>
             </AnimatedSection>
@@ -95,16 +98,16 @@ const NosSpecialites = () => {
               Ce que nous proposons
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {[
-                "Spécialités de la gastronomie française",
-                "Plats signatures de notre chef",
-                "Créations saisonnières",
-                "Produits frais et locaux",
-                "Menus personnalisables",
-                "Options végétariennes et sans allergènes",
-                "Présentation soignée et raffinée",
-                "Service adapté à vos besoins",
+                "Menus sur-mesure élaborés selon vos goûts et thèmes",
+                "Cocktails apéritifs et dînatoires raffinés",
+                "Buffets froids variés pour célébrations",
+                "Plateaux repas gourmands livrés avec soin",
+                "Portage de repas à domicile pour votre confort",
+                "Créations gastronomiques uniques avec produits de saison",
+                "Service professionnel dans toute la Gironde",
+                "Devis gratuit et personnalisé",
               ].map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -116,6 +119,37 @@ const NosSpecialites = () => {
                 >
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mini FAQ */}
+            <div className="mt-16 space-y-4">
+              <h3 className="text-2xl font-bold mb-8 font-playfair">Questions Fréquentes</h3>
+              {[
+                {
+                  q: "Dans quelles villes intervenez-vous ?",
+                  a: "Nous intervenons à LAPOUYADE et dans toutes les villes environnantes : Bordeaux, Libourne, Saint-André-de-Cubzac, Coutras, Izon, Saint-Denis-de-Pile, Galgon, et tous les départements limitrophes."
+                },
+                {
+                  q: "Comment choisir AU BON GOÛT comme traiteur ?",
+                  a: "Notre expertise transforme vos envies en réalité avec des prestations adaptées à tous types d'événements. Chaque spécialité est pensée pour offrir une expérience sensorielle unique avec prise en charge complète."
+                },
+                {
+                  q: "Proposez-vous des options végétariennes ?",
+                  a: "Oui, nos menus s'adaptent à tous les goûts et régimes alimentaires. Nous créons des options végétariennes, véganes et sans gluten sur demande."
+                },
+              ].map((faq, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.1 }}
+                  className="bg-card p-6 rounded-xl shadow-[var(--shadow-card)]"
+                >
+                  <h4 className="font-semibold mb-2 text-foreground">{faq.q}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                 </motion.div>
               ))}
             </div>

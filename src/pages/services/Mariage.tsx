@@ -12,10 +12,10 @@ const Mariage = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Traiteur Mariage | Au Bon Goût - Gironde</title>
+        <title>Traiteur Mariage Gironde | Au Bon Goût - Lapouyade</title>
         <meta
           name="description"
-          content="Service traiteur pour votre mariage en Gironde. Menus raffinés, service impeccable pour faire de votre jour J un moment magique et inoubliable."
+          content="Excellence culinaire pour votre mariage à Lapouyade. Service traiteur sur-mesure dans toute la Gironde : Libourne, Saint-André-de-Cubzac, Coutras, Izon."
         />
       </Helmet>
 
@@ -74,14 +74,15 @@ const Mariage = () => {
             <AnimatedSection>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Votre mariage est un jour unique qui mérite une attention particulière. 
-                  <strong> Au Bon Goût</strong> met à votre service toute son expertise pour créer 
-                  des menus sur-mesure qui sublimeront votre réception.
+                  Avec <strong>AU BON GOÛT</strong>, situé à LAPOUYADE, vivez l'expérience d'un mariage 
+                  parfaitement orchestré grâce à un service traiteur qui allie excellence culinaire et 
+                  proximité géographique.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  De l'apéritif au dessert, en passant par le vin d'honneur et le repas assis, 
-                  nous concevons avec vous une prestation gastronomique qui reflète vos goûts et 
-                  vos envies, tout en respectant votre budget.
+                  Pour tout autre événement spécial, nous déployons notre expertise pour créer des souvenirs 
+                  gustatifs inoubliables dans les villes comme Libourne, Saint-André-de-Cubzac, Coutras, 
+                  Izon, Galgon et Ambarès-et-Lagrave. Nos chefs expérimentés élaborent des cocktails dînatoires 
+                  innovants et des buffets froids raffinés.
                 </p>
               </div>
             </AnimatedSection>
@@ -97,16 +98,16 @@ const Mariage = () => {
               Nos Prestations Mariage
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {[
-                "Menus personnalisés selon vos envies",
-                "Vin d'honneur & cocktail de bienvenue",
-                "Repas assis ou buffet gastronomique",
-                "Service complet avec personnel qualifié",
-                "Coordination avec vos prestataires",
-                "Gestion du timing et du déroulé",
-                "Décoration et mise en place des tables",
-                "Pièce montée et desserts raffinés",
+                "Sélection minutieuse de mets raffinés et personnalisés",
+                "Réalisation sur place de pièces gastronomiques",
+                "Serveurs professionnels pour une prestation fluide",
+                "Cocktails apéritifs créatifs pour surprendre vos invités",
+                "Location de vaisselle et nappages haut-de-gamme",
+                "Coordination avec votre thème et vos prestataires",
+                "Service rapide et parfaitement adapté",
+                "Intervention en Gironde et départements limitrophes",
               ].map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -118,6 +119,37 @@ const Mariage = () => {
                 >
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mini FAQ */}
+            <div className="mt-16 space-y-4">
+              <h3 className="text-2xl font-bold mb-8 font-playfair">Questions Fréquentes</h3>
+              {[
+                {
+                  q: "Comment garantir la réussite de notre repas de mariage ?",
+                  a: "La réussite de votre mariage repose sur une coordination experte et un service culinaire personnalisé. Nous sélectionnons les meilleurs produits et proposons une dégustation pour vous. Notre équipe intervient efficacement dans des zones proches comme Taron, Sauveterre-de-Guyenne, Créon ou Blaye."
+                },
+                {
+                  q: "Proposez-vous des services annexes pour le mariage ?",
+                  a: "Oui, nous proposons des services variés : conception de cocktails apéritifs uniques, buffets froids gourmands, plateaux repas pratiques pour vos moments festifs ou intimes, décoration des buffets et mise à disposition de matériel logistique."
+                },
+                {
+                  q: "Quelle est votre zone d'intervention ?",
+                  a: "Nous intervenons à proximité de Bordeaux, Libourne, Saint-André-de-Cubzac, et dans toutes les localités de Gironde. Contactez-nous au 05 57 49 41 30 pour un devis personnalisé."
+                },
+              ].map((faq, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.1 }}
+                  className="bg-card p-6 rounded-xl shadow-[var(--shadow-card)]"
+                >
+                  <h4 className="font-semibold mb-2 text-foreground">{faq.q}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                 </motion.div>
               ))}
             </div>

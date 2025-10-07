@@ -12,10 +12,10 @@ const BuffetFroid = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Buffet Froid & Lendemain de Mariage | Au Bon Goût - Traiteur Gironde</title>
+        <title>Buffet Froid & Lendemain Mariage | Au Bon Goût - Gironde</title>
         <meta
           name="description"
-          content="Buffets froids et lendemains de mariage à Lapouyade. Raffinement et convivialité avec AU BON GOÛT."
+          content="Buffets froids raffinés et lendemains de mariage à Lapouyade. Spécialiste buffet froid en Gironde pour vos événements professionnels."
         />
       </Helmet>
 
@@ -75,12 +75,15 @@ const BuffetFroid = () => {
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Lorsque l'on parle de raffinement et de convivialité, <strong>AU BON GOÛT</strong>, 
-                  situé à LAPOUYADE, s'impose comme un acteur incontournable.
+                  situé à LAPOUYADE, s'impose comme un acteur incontournable. Spécialiste en buffet froid 
+                  et lendemain de mariage, notre entreprise culinaire transforme vos réceptions en instants 
+                  mémorables grâce à une organisation minutieuse et une sélection de mets savoureux.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Nos buffets froids et prestations de lendemain de mariage sont conçus pour prolonger 
-                  la magie de votre événement, en offrant à vos invités des mets raffinés dans une 
-                  atmosphère détendue et conviviale.
+                  Nous concevons des buffets froids qui allient esthétisme, praticité et excellence culinaire. 
+                  Nos prestations sont pensées pour satisfaire tous vos invités, alliant variétés tranchées 
+                  délicatement avec plats parfaitement assaisonnés. Nous intervenons à Libourne, Coutras, 
+                  Saint-Denis-de-Pile, Abzac, Villegouge et Saint-Seurin-sur-l'Isle.
                 </p>
               </div>
             </AnimatedSection>
@@ -96,16 +99,16 @@ const BuffetFroid = () => {
               Nos Prestations Buffet
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {[
-                "Buffets froids variés et raffinés",
-                "Formules lendemain de mariage",
-                "Charcuteries et fromages sélectionnés",
-                "Salades composées et créatives",
-                "Terrines et pâtés maison",
-                "Desserts gourmands",
-                "Présentation soignée",
-                "Service adapté au nombre de convives",
+                "Buffets froids alliant esthétisme et praticité",
+                "Mise en scène culinaire professionnelle",
+                "Respect du thème choisi avec distribution efficace",
+                "Accompagnement artisanal créatif",
+                "Logistique parfaitement orchestrée",
+                "Coordination sur-mesure incluant suivi rigoureux",
+                "Engagement envers la durabilité",
+                "Solutions transport alimentaire sécurisées",
               ].map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -117,6 +120,37 @@ const BuffetFroid = () => {
                 >
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mini FAQ */}
+            <div className="mt-16 space-y-4">
+              <h3 className="text-2xl font-bold mb-8 font-playfair">Questions Fréquentes</h3>
+              {[
+                {
+                  q: "Comment garantir un lendemain de mariage inoubliable ?",
+                  a: "Le lendemain de mariage est une occasion spéciale qui mérite une attention particulière. AU BON GOÛT propose des formules brunch ou déjeuner sur-mesure, conçues pour prolonger l'enchantement de la veille en offrant un moment de détente avec buffets élégants, plats personnalisés et distribution efficace."
+                },
+                {
+                  q: "Quels engagements pour vos prestations ?",
+                  a: "Notre équipe se plait à votre satisfaction : sélection d'ingrédients premium, présentation soignée, mise en scène culinaire professionnelle, intégrant présentations élégantes sur assiettes, verrines, individuelle en tranches. Notre logistique parfaitement orchestrée, grâce à utilisation d'équipements isothermes et solutions de transport alimentaire sécurisées."
+                },
+                {
+                  q: "Où intervenez-vous avec vos buffets froids ?",
+                  a: "Pour garantir une réactivité et flexibilité adaptée à vos besoins, contactez-nous aujourd'hui pour discuter de vos besoins spécifiques et obtenir un devis personnalisé. Situé au 22 B AVENUE DE VERDUN à LAPOUYADE (33620), nous intervenons dans les villes voisines : Bordeaux, Libourne, Saint-Mélard-de-Guîtres, Pomerol, Mérignac et Bordeaux."
+                },
+              ].map((faq, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.1 }}
+                  className="bg-card p-6 rounded-xl shadow-[var(--shadow-card)]"
+                >
+                  <h4 className="font-semibold mb-2 text-foreground">{faq.q}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                 </motion.div>
               ))}
             </div>

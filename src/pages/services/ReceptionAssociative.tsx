@@ -74,13 +74,16 @@ const ReceptionAssociative = () => {
             <AnimatedSection>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Organiser une réception associative à LAPOUYADE et ses alentours devient une 
-                  expérience exceptionnelle avec <strong>AU BON GOÛT</strong>.
+                  Organiser une réception associative à LAPOUYADE et ses alentours devient une expérience 
+                  exceptionnelle avec <strong>AU BON GOÛT</strong>. Spécialiste dans les événements associés, 
+                  notre traiteur s'engage à offrir un service gastronomique raffiné et un service de qualité 
+                  pour émerveiller vos convives.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Notre équipe s'adapte parfaitement aux besoins spécifiques des associations, 
-                  en proposant des prestations de qualité à des tarifs adaptés pour faire de 
-                  votre événement un moment mémorable.
+                  Que ce soit pour un cocktail dînatoire, une cérémonie de mariage, un anniversaire festif, 
+                  notre savoir-faire en matière de portage de repas et gestion culinaire garantit une 
+                  prestation sans égale. Nous intervenons dans les villes proches : Coutras, Saint-Savin, 
+                  Coutras, Cavignac, Larusc​ade et Marsan.
                 </p>
               </div>
             </AnimatedSection>
@@ -96,16 +99,16 @@ const ReceptionAssociative = () => {
               Nos Services pour Associations
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {[
-                "Buffets adaptés à tous budgets",
-                "Formules personnalisables",
-                "Service professionnel et discret",
-                "Gestion complète de la restauration",
-                "Vaisselle et mobilier si nécessaire",
-                "Respect des contraintes horaires",
-                "Options végétariennes et sans allergènes",
-                "Accompagnement dans l'organisation",
+                "Planification événements pensée dans les moindres détails",
+                "Prestations flexibles : portage repas, buffets froids",
+                "Adaptation au budget : formules équilibrées",
+                "Sélection locale ingrédients frais authentiques",
+                "Solutions variées : cocktails, plateaux traiteur, animations",
+                "Expertise gastronomique raffinée adaptée",
+                "Respect normes HACCP et sécurité alimentaire",
+                "Présentation artistique et créative",
               ].map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -117,6 +120,37 @@ const ReceptionAssociative = () => {
                 >
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mini FAQ */}
+            <div className="mt-16 space-y-4">
+              <h3 className="text-2xl font-bold mb-8 font-playfair">Questions Fréquentes</h3>
+              {[
+                {
+                  q: "Quels sont les avantages d'un traiteur pour vos événements associatifs ?",
+                  a: "Un service traiteur comme AU BON GOÛT apporte bien plus qu'une simple prestation culinaire. Chaque détail est pris en compte pour transformer votre réception associative en une célébration mémorable. Nos cocktails apéritifs, buffets thématiques et repas en main sont conçus pour sublimer vos rassemblements."
+                },
+                {
+                  q: "Comment organiser une réception associative mémorable ?",
+                  a: "Le succès de notre réception associative nous travaillons étroitement avec vous, dès la conception du menu. Logistique sur site, animation gustative et présentation des mets. Nous gérons chaque aspect de votre réception : du respect normes HACCP, au dressage culinaire, en passant par gestion du timing au service attentif."
+                },
+                {
+                  q: "Quels services complémentaires proposez-vous ?",
+                  a: "Pour garantir la réussite de votre réception associative à LAPOUYADE ou dans ses environs, contactez AU BON GOÛT par téléphone en cliquant sur le bouton en haut à droite. Situé au 22 B AVENUE DE VERDUN à LAPOUYADE (33620), nous intervenons dans les villes voisines comme Saint-André-de-Cubzac, Libourne, Cavignac, Ambarès-et-Lagrave, Vayres et Saint-Loubès."
+                },
+              ].map((faq, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.1 }}
+                  className="bg-card p-6 rounded-xl shadow-[var(--shadow-card)]"
+                >
+                  <h4 className="font-semibold mb-2 text-foreground">{faq.q}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                 </motion.div>
               ))}
             </div>

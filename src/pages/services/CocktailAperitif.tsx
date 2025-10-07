@@ -76,11 +76,13 @@ const CocktailAperitif = () => {
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Découvrez les créations uniques d'<strong>AU BON GOÛT</strong> à LAPOUYADE, où chaque 
                   cocktail apéritif est conçu pour émerveiller les papilles et offrir une expérience 
-                  culinaire mémorable.
+                  culinaire mémorable. Située au cœur de la Gironde, cette entreprise excelle dans l'art 
+                  gastronomique, proposant des prestations adaptées aux attentes les plus variées.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Nos cocktails apéritifs sont l'occasion parfaite pour accueillir vos invités avec 
-                  élégance et gourmandise, que ce soit pour un événement professionnel ou privé.
+                  Que ce soit à Libourne, Saint-Denis-de-Pile, Coutras, Guitres, Saint-Sulpice-de-Faleyrens 
+                  ou Abzac, nous sommes spécialistes de l'événementiel et intervenons avec efficacité pour 
+                  transformer chaque réception en un moment exceptionnel.
                 </p>
               </div>
             </AnimatedSection>
@@ -96,16 +98,16 @@ const CocktailAperitif = () => {
               Nos Formules Apéritif
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {[
-                "Cocktails signature du chef",
-                "Verrines et bouchées raffinées",
-                "Sélection de fromages et charcuteries",
-                "Canapés chauds et froids",
-                "Options sans alcool disponibles",
-                "Présentation élégante",
-                "Service professionnel",
-                "Durée 1h à 1h30",
+                "Fraîcheur des ingrédients contribuant à la réussite",
+                "Buffets personnalisés avec saveurs internationales",
+                "Dégustation avant l'événement pour assurer le menu",
+                "Suivi attentif et assuré par notre chef traiteur",
+                "Solutions inclusives avec options alimentaires spécifiques",
+                "Buffets thématiques créatifs pour événements variés",
+                "Service complet incluant cocktails signature",
+                "Expérience gustative enrichie pour vos convives",
               ].map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -117,6 +119,37 @@ const CocktailAperitif = () => {
                 >
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-muted-foreground">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mini FAQ */}
+            <div className="mt-16 space-y-4">
+              <h3 className="text-2xl font-bold mb-8 font-playfair">Questions Fréquentes</h3>
+              {[
+                {
+                  q: "Comment garantir un cocktail apéritif exceptionnel ?",
+                  a: "L'excellence de la fraîcheur des ingrédients constitue le socle des services d'AU BON GOÛT. Chaque amuse-bouche et boisson est élaboré avec soin pour répondre à des exigences élevées. Chefs privilégiant produits de saison et locaux pour garantir une expérience gustative."
+                },
+                {
+                  q: "Quels services complémentaires proposez-vous ?",
+                  a: "AU BON GOÛT propose un éventail de prestations : buffets personnalisés pour événements, dégustation proposée avant l'événement, des solutions inclusives et bien pensées répondant aux besoins alimentaires spécifiques."
+                },
+                {
+                  q: "Où intervenez-vous pour vos cocktails ?",
+                  a: "Nous intervenons dans les localités comme Saint-Savin, Larusc​ade, Izon-de-Coutran, Cadillac-en-Fronsadais, Saint-Michel-de-Fronsac et Diou. N'hésitez pas à consulter notre avis Google pour découvrir nos clients satisfaits."
+                },
+              ].map((faq, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.1 }}
+                  className="bg-card p-6 rounded-xl shadow-[var(--shadow-card)]"
+                >
+                  <h4 className="font-semibold mb-2 text-foreground">{faq.q}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
                 </motion.div>
               ))}
             </div>
