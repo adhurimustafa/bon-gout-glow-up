@@ -1,16 +1,45 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { Lightbox } from "@/components/Lightbox";
 import { Camera } from "lucide-react";
+import carousel1 from "@/assets/carousel-1.jpg";
+import carousel2 from "@/assets/carousel-2.jpg";
+import carousel3 from "@/assets/carousel-3.jpg";
+import carousel4 from "@/assets/carousel-4.jpg";
 
 const Realisations = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   const categories = [
     { name: "Mariages", count: 12 },
     { name: "Cocktails", count: 8 },
     { name: "Buffets", count: 10 },
     { name: "Événements Entreprise", count: 6 },
   ];
+
+  const images = [
+    { src: carousel1, alt: "Réalisation gastronomique" },
+    { src: carousel2, alt: "Cocktails événement" },
+    { src: carousel3, alt: "Buffet traiteur" },
+    { src: carousel4, alt: "Mariage réception" },
+  ];
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <div className="min-h-screen">
@@ -73,19 +102,22 @@ const Realisations = () => {
           <AnimatedSection>
             <div className="max-w-6xl mx-auto">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[...Array(9)].map((_, index) => (
+                {images.map((image, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                    className="aspect-square bg-gradient-to-br from-secondary to-accent/30 rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-glow)] transition-all overflow-hidden cursor-pointer"
+                    whileHover={{ scale: 1.04 }}
+                    className="aspect-square rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-glow)] transition-all overflow-hidden cursor-pointer"
+                    onClick={() => openLightbox(index)}
                   >
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Camera className="h-12 w-12 text-muted-foreground/30" />
-                    </div>
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                    />
                   </motion.div>
                 ))}
               </div>
@@ -99,6 +131,15 @@ const Realisations = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      <Lightbox
+        isOpen={lightboxOpen}
+        images={images}
+        currentIndex={currentImageIndex}
+        onClose={() => setLightboxOpen(false)}
+        onNext={nextImage}
+        onPrevious={prevImage}
+      />
 
       <Footer />
     </div>

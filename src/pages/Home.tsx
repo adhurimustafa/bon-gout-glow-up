@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin, Award, Clock, Users } from "lucide-react";
+import { Phone, Award, Clock, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-restaurant.jpg";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StickyCallButton } from "@/components/StickyCallButton";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { Helmet } from "react-helmet";
 
 const Home = () => {
@@ -42,84 +42,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <motion.div
-          className="absolute inset-0 z-0"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-          <img
-            src={heroImage}
-            alt="Plat gastronomique Au Bon Goût"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(25_30%_15%_/_0.9)] to-[hsl(28_40%_25%_/_0.7)]" />
-        </motion.div>
-
-        <div className="container relative z-10 px-4 md:px-6 text-center md:text-left pt-20">
-          <div className="max-w-3xl mx-auto md:mx-0">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight font-playfair">
-                Au Bon Goût
-              </h1>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <p className="text-2xl md:text-3xl text-white/95 mb-4 font-light italic">
-                Le goût de la tradition, servi avec élégance
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <p className="text-lg md:text-xl text-white/85 mb-8 max-w-2xl leading-relaxed">
-                Une équipe à votre écoute, un service sur-mesure et un savoir-faire reconnu. 
-                Traiteur d'exception pour vos instants mémorables en Gironde.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-            >
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-white shadow-[var(--shadow-elegant)] text-lg px-8 py-6 transition-all hover:scale-105"
-                onClick={handleCall}
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Nous appeler
-              </Button>
-              <Link to="/contact">
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-foreground text-lg px-8 py-6 transition-all hover:scale-105"
-                >
-                  <MapPin className="mr-2 h-5 w-5" />
-                  Demander un devis
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       {/* Services Section */}
       <section className="py-20 md:py-32 bg-background">
