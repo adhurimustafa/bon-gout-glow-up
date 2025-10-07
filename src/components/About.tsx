@@ -32,9 +32,15 @@ export const About = () => {
             plusieurs années, M. Godinaud et son équipe vous assurent une qualité de service 
             irréprochable, que ce soit pour vos événements ou pour la livraison de repas à domicile en Gironde.
           </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
             Nous mettons tout en œuvre, avec nos moyens humains et logistiques, pour faire de 
             votre événement à Bordeaux (33) une expérience unique et inoubliable.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Traiteur événementiel à Lapouyade, nous sommes au service des particuliers et entreprises 
+            dans toute la Gironde et les départements limitrophes. Notre équipe talentueuse et qualifiée 
+            travaille exclusivement avec des ingrédients frais et de première qualité pour vous offrir 
+            des mets sublimes qui reflètent l'harmonie des saveurs.
           </p>
         </div>
 

@@ -29,12 +29,12 @@ export const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Au Bon Goût
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-4 font-light">
-            Traiteur d'Exception en Gironde
+          <p className="text-2xl md:text-3xl text-white/95 mb-4 font-light italic">
+            Le goût de la tradition, servi avec élégance
           </p>
-          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl">
-            Une équipe à votre écoute, un service sur-mesure et un savoir-faire reconnu depuis 1999. 
-            Faites de votre événement une expérience unique et inoubliable.
+          <p className="text-lg md:text-xl text-white/85 mb-8 max-w-2xl leading-relaxed">
+            Une équipe à votre écoute, un service sur-mesure et un savoir-faire reconnu. 
+            Profitez de la qualité et de la sérénité qu'offre notre service traiteur et livraison de repas à domicile en Gironde.
           </p>
 
           {/* CTA Buttons */}
