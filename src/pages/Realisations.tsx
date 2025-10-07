@@ -102,26 +102,28 @@ const Realisations = () => {
                     loading={index === 0 ? "eager" : "lazy"}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                   
                   {/* Title Overlay */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                    <motion.h1
-                      className="text-5xl md:text-7xl font-bold mb-4 text-white font-playfair drop-shadow-2xl"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8 }}
-                    >
-                      Nos Réalisations
-                    </motion.h1>
-                    <motion.p
-                      className="text-xl md:text-2xl text-white/95 leading-relaxed max-w-3xl drop-shadow-lg"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                      Découvrez nos plus belles créations culinaires et événements réalisés en Gironde
-                    </motion.p>
+                    <div className="bg-black/45 backdrop-blur-sm rounded-xl px-4 py-3 md:px-6 md:py-4">
+                      <motion.h1
+                        className="text-5xl md:text-7xl font-bold mb-3 text-white font-playfair drop-shadow-2xl"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                      >
+                        Nos Réalisations
+                      </motion.h1>
+                      <motion.p
+                        className="text-lg md:text-2xl text-white/90 leading-relaxed max-w-3xl drop-shadow-lg"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                      >
+                        Découvrez nos plus belles créations culinaires et événements réalisés en Gironde
+                      </motion.p>
+                    </div>
                   </div>
                 </div>
               </CarouselItem>
