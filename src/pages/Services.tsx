@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import servicesHeroData from "@/content/services-hero.json";
+import servicesHero from "@/assets/services-hero.jpg";
 import serviceSpecialites from "@/assets/service-specialites.jpg";
 import serviceMariage from "@/assets/service-mariage.jpg";
 import serviceCocktail from "@/assets/service-cocktail.jpg";
@@ -90,10 +90,9 @@ const Services = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src={servicesHeroData.imageUrl}
-            alt={servicesHeroData.alt}
+            src={servicesHero}
+            alt="Table élégante de réception avec décoration raffinée – Au Bon Goût"
             loading="eager"
-            fetchPriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-foreground/35 to-accent/40" />

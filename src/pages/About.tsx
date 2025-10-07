@@ -3,7 +3,7 @@ import { Award, Heart, Users, MapPin } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import aboutHeroData from "@/content/about-hero.json";
+import aboutHero from "@/assets/about-hero.jpg";
 
 const About = () => {
   const values = [
@@ -33,10 +33,9 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src={aboutHeroData.imageUrl}
-            alt={aboutHeroData.alt}
+            src={aboutHero}
+            alt="Grande salle de réception élégante – Au Bon Goût Lapouyade"
             loading="eager"
-            fetchPriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/45 via-foreground/40 to-accent/35" />
