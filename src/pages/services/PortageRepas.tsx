@@ -181,7 +181,7 @@ const PortageRepas = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6"
+                className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-primary text-lg px-8 py-6 transition-all duration-300"
                 onClick={() => (window.location.href = "tel:0557494130")}
               >
                 05 57 49 41 30
