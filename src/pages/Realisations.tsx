@@ -5,27 +5,44 @@ import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Lightbox } from "@/components/Lightbox";
 import { Camera } from "lucide-react";
-import carousel1 from "@/assets/carousel-1.jpg";
-import carousel2 from "@/assets/carousel-2.jpg";
-import carousel3 from "@/assets/carousel-3.jpg";
-import carousel4 from "@/assets/carousel-4.jpg";
+
+// Import gallery images
+import buffet01 from "@/assets/gallery/aubon-gout-buffet-lapouyade-01.jpg";
+import buffet02 from "@/assets/gallery/aubon-gout-buffet-lapouyade-02.jpg";
+import buffet03 from "@/assets/gallery/aubon-gout-buffet-lapouyade-03.jpg";
+import buffet04 from "@/assets/gallery/aubon-gout-buffet-lapouyade-04.jpg";
+import buffet05 from "@/assets/gallery/aubon-gout-buffet-lapouyade-05.jpg";
+import buffet06 from "@/assets/gallery/aubon-gout-buffet-lapouyade-06.jpg";
+import cocktail01 from "@/assets/gallery/aubon-gout-cocktail-lapouyade-01.jpg";
+import cocktail02 from "@/assets/gallery/aubon-gout-cocktail-lapouyade-02.jpg";
+import reception01 from "@/assets/gallery/aubon-gout-reception-lapouyade-01.jpg";
+import plats01 from "@/assets/gallery/aubon-gout-plats-lapouyade-01.jpg";
+import plats02 from "@/assets/gallery/aubon-gout-plats-lapouyade-02.jpg";
 
 const Realisations = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const categories = [
-    { name: "Mariages", count: 12 },
-    { name: "Cocktails", count: 8 },
-    { name: "Buffets", count: 10 },
-    { name: "Événements Entreprise", count: 6 },
+    { name: "Tous", count: 11 },
+    { name: "Buffets", count: 6 },
+    { name: "Cocktails", count: 2 },
+    { name: "Réceptions", count: 3 },
   ];
 
   const images = [
-    { src: carousel1, alt: "Réalisation gastronomique" },
-    { src: carousel2, alt: "Cocktails événement" },
-    { src: carousel3, alt: "Buffet traiteur" },
-    { src: carousel4, alt: "Mariage réception" },
+    { src: buffet01, alt: "Buffet traiteur – Au Bon Goût Lapouyade", category: "Buffets" },
+    { src: cocktail01, alt: "Cocktail dinatoire – Au Bon Goût Lapouyade", category: "Cocktails" },
+    { src: buffet02, alt: "Buffet gastronomique – Au Bon Goût Lapouyade", category: "Buffets" },
+    { src: buffet03, alt: "Buffet réception – Au Bon Goût Lapouyade", category: "Buffets" },
+    { src: reception01, alt: "Réception traiteur – Au Bon Goût Lapouyade", category: "Réceptions" },
+    { src: plats01, alt: "Plats traiteur – Au Bon Goût Lapouyade", category: "Réceptions" },
+    { src: buffet04, alt: "Buffet froid – Au Bon Goût Lapouyade", category: "Buffets" },
+    { src: cocktail02, alt: "Cocktail apéritif – Au Bon Goût Lapouyade", category: "Cocktails" },
+    { src: buffet05, alt: "Buffet événement – Au Bon Goût Lapouyade", category: "Buffets" },
+    { src: buffet06, alt: "Buffet mariage – Au Bon Goût Lapouyade", category: "Buffets" },
+    { src: plats02, alt: "Cuisine française – Au Bon Goût Lapouyade", category: "Réceptions" },
   ];
 
   const openLightbox = (index: number) => {
@@ -85,10 +102,15 @@ const Realisations = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-card rounded-full shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-glow)] transition-all"
+                  onClick={() => setSelectedCategory(category.name === "Tous" ? null : category.name)}
+                  className={`px-6 py-3 rounded-full shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-glow)] transition-all ${
+                    (selectedCategory === category.name || (selectedCategory === null && category.name === "Tous"))
+                      ? "bg-primary text-white"
+                      : "bg-card"
+                  }`}
                 >
                   <span className="font-semibold">{category.name}</span>
-                  <span className="ml-2 text-muted-foreground">({category.count})</span>
+                  <span className="ml-2 opacity-80">({category.count})</span>
                 </motion.button>
               </AnimatedSection>
             ))}
@@ -96,36 +118,36 @@ const Realisations = () => {
         </div>
       </section>
 
-      {/* Gallery Placeholder */}
+      {/* Gallery */}
       <section className="py-20 bg-background">
         <div className="container px-4 md:px-6">
           <AnimatedSection>
-            <div className="max-w-6xl mx-auto">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {images.map((image, index) => (
+            <div className="max-w-7xl mx-auto">
+              <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                {images
+                  .filter(img => !selectedCategory || img.category === selectedCategory)
+                  .map((image, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.04 }}
-                    className="aspect-square rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-glow)] transition-all overflow-hidden cursor-pointer"
+                    transition={{ duration: 0.4, delay: (index % 6) * 0.08 }}
+                    whileHover={{ scale: 1.04, y: -4 }}
+                    className="break-inside-avoid rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] transition-all overflow-hidden cursor-pointer group"
                     onClick={() => openLightbox(index)}
                   >
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover"
-                    />
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
                   </motion.div>
                 ))}
-              </div>
-              
-              <div className="text-center mt-12">
-                <p className="text-muted-foreground text-lg">
-                  Galerie photo en cours de préparation. Contactez-nous pour voir nos réalisations complètes.
-                </p>
               </div>
             </div>
           </AnimatedSection>

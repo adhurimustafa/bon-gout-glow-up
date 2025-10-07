@@ -5,35 +5,36 @@ import { Button } from "@/components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-import carousel1 from "@/assets/carousel-1.jpg";
-import carousel2 from "@/assets/carousel-2.jpg";
-import carousel3 from "@/assets/carousel-3.jpg";
-import carousel4 from "@/assets/carousel-4.jpg";
+// Import real gallery images for carousel
+import carousel1 from "@/assets/gallery/aubon-gout-buffet-lapouyade-01.jpg";
+import carousel2 from "@/assets/gallery/aubon-gout-cocktail-lapouyade-01.jpg";
+import carousel3 from "@/assets/gallery/aubon-gout-buffet-lapouyade-03.jpg";
+import carousel4 from "@/assets/gallery/aubon-gout-reception-lapouyade-01.jpg";
 
 const slides = [
   {
     image: carousel1,
     title: "Au Bon Goût",
     subtitle: "Le goût de la tradition, servi avec élégance",
-    alt: "Cuisine française gastronomique",
+    alt: "Buffet traiteur gastronomique – Au Bon Goût Lapouyade",
   },
   {
     image: carousel2,
     title: "Cocktails d'Exception",
     subtitle: "Des moments inoubliables pour vos réceptions",
-    alt: "Cocktails et champagne",
+    alt: "Cocktail dinatoire – Au Bon Goût Lapouyade",
   },
   {
     image: carousel3,
     title: "Buffets Raffinés",
     subtitle: "L'art de la gastronomie française",
-    alt: "Buffet gastronomique",
+    alt: "Buffet gastronomique – Au Bon Goût Lapouyade",
   },
   {
     image: carousel4,
     title: "Votre Mariage",
     subtitle: "Faites de votre jour J un moment magique",
-    alt: "Réception de mariage",
+    alt: "Réception de mariage – Au Bon Goût Lapouyade",
   },
 ];
 
