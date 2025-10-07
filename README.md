@@ -1,73 +1,124 @@
-# Welcome to your Lovable project
+# Au Bon Goût - Site Premium
 
-## Project info
+Site web premium pour le restaurant traiteur "Au Bon Goût" à Lapouyade, Gironde.
 
-**URL**: https://lovable.dev/projects/f0f21bc9-721e-4ca2-91d1-4b1dec214c71
+## 🎨 Stack Technique
 
-## How can I edit this code?
+- **Framework**: React 18 + TypeScript
+- **Build**: Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **UI Components**: shadcn/ui + Radix UI
+- **Routing**: React Router v6
+- **Icons**: Lucide React
 
-There are several ways of editing your application.
+## 📁 Architecture
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/f0f21bc9-721e-4ca2-91d1-4b1dec214c71) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── ui/              # Composants UI shadcn
+│   ├── Header.tsx       # Header sticky avec navigation
+│   ├── Footer.tsx       # Footer avec informations
+│   ├── AnimatedSection.tsx  # Wrapper pour animations
+│   ├── Contact.tsx      # Section contact
+│   ├── ContactForm.tsx  # Formulaire de contact
+│   └── ...
+├── pages/
+│   ├── Home.tsx         # Page d'accueil (/)
+│   ├── About.tsx        # Qui sommes-nous (/qui-sommes-nous)
+│   ├── Services.tsx     # Nos services (/nos-services)
+│   ├── Realisations.tsx # Nos réalisations (/nos-realisations)
+│   └── Contact.tsx      # Contact (/contact)
+├── assets/              # Images et médias
+└── index.css            # Design system (couleurs, tokens)
 ```
 
-**Edit a file directly in GitHub**
+## 🎨 Design System
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Couleurs (HSL)
+- **Primary**: Ambre doré (32 85% 55%)
+- **Secondary**: Beige chaud (28 40% 90%)
+- **Accent**: Doré clair (32 80% 88%)
+- **Background**: Blanc cassé (28 25% 97%)
 
-**Use GitHub Codespaces**
+### Typographie
+- **Titres**: Playfair Display (serif)
+- **Texte**: Inter (sans-serif)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Animations
+- Durées: 200-600ms
+- Easing: cubic-bezier pour smoothness
+- Scroll reveal avec Framer Motion
+- Hover effects avec scale & glow
 
-## What technologies are used for this project?
+## 🚀 Installation & Développement
 
-This project is built with:
+```bash
+# Installer les dépendances
+npm install
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Lancer le serveur de développement
+npm run dev
 
-## How can I deploy this project?
+# Build pour production
+npm run build
 
-Simply open [Lovable](https://lovable.dev/projects/f0f21bc9-721e-4ca2-91d1-4b1dec214c71) and click on Share -> Publish.
+# Prévisualiser le build
+npm run preview
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 📝 Comment Éditer
 
-Yes, you can!
+### Modifier les couleurs
+Éditer `src/index.css` - section `:root`
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Modifier les textes
+- **Page d'accueil**: `src/pages/Home.tsx`
+- **À propos**: `src/pages/About.tsx`
+- **Services**: `src/pages/Services.tsx`
+- **Contact**: `src/components/Contact.tsx`
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Modifier les coordonnées
+Rechercher et remplacer dans tous les fichiers:
+- Téléphone: `0557494130`
+- Email: `contact@aubongout-33.fr`
+- Adresse: `22 B Avenue de Verdun, 33620 Lapouyade`
+
+### Remplacer les images
+1. Ajouter vos images dans `src/assets/`
+2. Importer dans les composants: `import myImage from "@/assets/mon-image.jpg"`
+3. Remplacer les références existantes
+
+## 📊 Performance & SEO
+
+### Optimisations incluses:
+- ✅ Lazy loading des images
+- ✅ Animations performantes (GPU-accelerated)
+- ✅ Bundle splitting automatique
+- ✅ Meta tags SEO sur chaque page
+- ✅ Schema.org markup (LocalBusiness)
+- ✅ Responsive design (mobile-first)
+- ✅ Accessibilité (A11Y) - contraste AA
+
+### Objectifs Lighthouse:
+- Performance: ≥90
+- Accessibility: ≥90
+- Best Practices: ≥90
+- SEO: ≥90
+
+## 📞 Contact
+
+**Au Bon Goût - Hervé Godinaud**
+- 📍 22 B Avenue de Verdun, 33620 Lapouyade
+- 📞 05 57 49 41 30
+- 📧 contact@aubongout-33.fr
+- 🌐 Zone: 200 km autour de Lapouyade
+
+## 🏆 Distinctions
+
+Médaillé Saveurs d'Or 1999 - Concours de produits régionaux Saveurs de Poitou Charentes
+
+---
+
+Développé avec ❤️ pour une expérience utilisateur premium
