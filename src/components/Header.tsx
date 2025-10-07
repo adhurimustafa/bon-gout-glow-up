@@ -36,8 +36,8 @@ export const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-lg h-16"
-          : "bg-transparent h-20"
+          ? "bg-background/95 backdrop-blur-xl shadow-lg h-16"
+          : "bg-background/90 backdrop-blur-md shadow-sm h-20"
       }`}
     >
       <div className="container mx-auto px-4 h-full">
@@ -45,7 +45,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <motion.h1
-              className="text-2xl md:text-3xl font-bold font-playfair text-foreground"
+              className="text-2xl md:text-3xl font-bold font-playfair text-foreground drop-shadow-sm"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
@@ -59,13 +59,13 @@ export const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className="relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary"
+                className="relative px-4 py-2 text-sm font-semibold transition-colors hover:text-primary text-foreground drop-shadow-sm"
               >
                 <span className="relative z-10">{item.label}</span>
                 {location.pathname === item.path && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute inset-0 bg-primary/10 rounded-md"
+                    className="absolute inset-0 bg-primary/20 rounded-md"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}
@@ -80,10 +80,10 @@ export const Header = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="relative group"
+                  className="relative group text-foreground hover:text-primary"
                   aria-label="Téléphone"
                 >
-                  <Phone className="h-5 w-5 transition-transform group-hover:scale-110" />
+                  <Phone className="h-5 w-5 transition-transform group-hover:scale-110 drop-shadow-sm" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-4" align="end">
@@ -112,13 +112,13 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-6 w-6 drop-shadow-sm" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-6 w-6 drop-shadow-sm" />
             )}
           </button>
         </div>
