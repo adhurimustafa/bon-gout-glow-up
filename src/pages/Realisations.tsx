@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Lightbox } from "@/components/Lightbox";
-import { Camera } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 // Import gallery images
 import buffet01 from "@/assets/gallery/aubon-gout-buffet-lapouyade-01.jpg";
@@ -60,37 +66,69 @@ const Realisations = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Nos Réalisations | Au Bon Goût - Traiteur Gironde</title>
+        <meta
+          name="description"
+          content="Découvrez nos plus belles réalisations traiteur : buffets, cocktails, réceptions et mariages en Gironde. Photos authentiques de nos prestations."
+        />
+      </Helmet>
+
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary/5 to-accent/10">
-        <div className="container px-4 md:px-6">
-          <AnimatedSection className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Camera className="h-16 w-16 text-primary mx-auto mb-6" />
-            </motion.div>
-            <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6 text-foreground font-playfair"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              Nos Réalisations
-            </motion.h1>
-            <motion.p 
-              className="text-xl text-muted-foreground leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Découvrez quelques-unes de nos plus belles créations et événements
-            </motion.p>
-          </AnimatedSection>
-        </div>
+      {/* Hero Carousel Section */}
+      <section className="relative h-[56vh] md:h-[70vh] overflow-hidden">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 4000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
+            }),
+          ]}
+          className="w-full h-full"
+        >
+          <CarouselContent className="h-full">
+            {images.slice(0, 6).map((image, index) => (
+              <CarouselItem key={index} className="h-full">
+                <div className="relative w-full h-full">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent" />
+                  
+                  {/* Title Overlay */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                    <motion.h1
+                      className="text-5xl md:text-7xl font-bold mb-4 text-white font-playfair drop-shadow-2xl"
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8 }}
+                    >
+                      Nos Réalisations
+                    </motion.h1>
+                    <motion.p
+                      className="text-xl md:text-2xl text-white/95 leading-relaxed max-w-3xl drop-shadow-lg"
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                      Découvrez nos plus belles créations culinaires et événements réalisés en Gironde
+                    </motion.p>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </section>
 
       {/* Categories */}

@@ -3,6 +3,7 @@ import { Award, Heart, Users, MapPin } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import aboutHeroData from "@/content/about-hero.json";
 
 const About = () => {
   const values = [
@@ -27,12 +28,25 @@ const About = () => {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary/5 to-accent/10">
-        <div className="container px-4 md:px-6">
+      {/* Hero Section with Background Image */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={aboutHeroData.imageUrl}
+            alt={aboutHeroData.alt}
+            loading="eager"
+            fetchPriority="high"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/45 via-foreground/40 to-accent/35" />
+        </div>
+
+        {/* Content */}
+        <div className="container px-4 md:px-6 relative z-10">
           <AnimatedSection className="max-w-4xl mx-auto text-center">
             <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6 text-foreground font-playfair"
+              className="text-5xl md:text-6xl font-bold mb-6 text-white font-playfair drop-shadow-2xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -40,7 +54,7 @@ const About = () => {
               Qui sommes-nous ?
             </motion.h1>
             <motion.p 
-              className="text-xl text-muted-foreground leading-relaxed"
+              className="text-xl text-white/95 leading-relaxed drop-shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}

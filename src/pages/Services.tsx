@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import servicesHeroData from "@/content/services-hero.json";
 import serviceSpecialites from "@/assets/service-specialites.jpg";
 import serviceMariage from "@/assets/service-mariage.jpg";
 import serviceCocktail from "@/assets/service-cocktail.jpg";
@@ -84,12 +85,25 @@ const Services = () => {
 
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary/5 to-accent/10">
-        <div className="container px-4 md:px-6">
+      {/* Hero Section with Background Image */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={servicesHeroData.imageUrl}
+            alt={servicesHeroData.alt}
+            loading="eager"
+            fetchPriority="high"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-foreground/35 to-accent/40" />
+        </div>
+
+        {/* Content */}
+        <div className="container px-4 md:px-6 relative z-10">
           <AnimatedSection className="max-w-4xl mx-auto text-center">
             <motion.h1
-              className="text-5xl md:text-6xl font-bold mb-6 text-foreground font-playfair"
+              className="text-5xl md:text-6xl font-bold mb-6 text-white font-playfair drop-shadow-2xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -97,7 +111,7 @@ const Services = () => {
               Nos Services
             </motion.h1>
             <motion.p
-              className="text-xl text-muted-foreground leading-relaxed"
+              className="text-xl text-white/95 leading-relaxed drop-shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
