@@ -93,7 +93,7 @@ const Realisations = () => {
           className="w-full h-full"
         >
           <CarouselContent className="h-full">
-            {images.slice(0, 6).map((image, index) => (
+            {images.map((image, index) => (
               <CarouselItem key={index} className="h-full">
                 <div className="relative w-full h-full">
                   <img
