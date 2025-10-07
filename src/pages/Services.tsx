@@ -113,48 +113,44 @@ const Services = () => {
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <motion.div
+              <Link 
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.32, delay: index * 0.08, ease: "easeOut" }}
-                className="group"
+                to={service.link}
+                className="block group"
               >
-                <div className="bg-card rounded-[28px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-2 hover:brightness-[1.02]">
-                  {/* Image */}
-                  <div className="relative h-[280px] overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:brightness-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
-                    
-                    {/* Title Badge */}
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <span className="inline-block bg-[#f5f1e8] text-foreground px-6 py-3 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] font-playfair font-semibold text-lg">
-                        {service.title}
-                      </span>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.32, delay: index * 0.08, ease: "easeOut" }}
+                >
+                  <div className="bg-card rounded-[28px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                    {/* Image */}
+                    <div className="relative h-[280px] overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent group-hover:from-primary/60 transition-all duration-300" />
+                      
+                      {/* Title Badge */}
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <span className="inline-block bg-[#f5f1e8] group-hover:bg-primary group-hover:text-white text-foreground px-6 py-3 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] font-playfair font-semibold text-lg transition-all duration-300">
+                          {service.title}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-7">
+                      <p className="text-muted-foreground leading-[1.7] line-clamp-2 tracking-[0.2px] group-hover:text-foreground transition-colors duration-300">
+                        {service.description}
+                      </p>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="p-7">
-                    <p className="text-muted-foreground leading-[1.7] mb-4 line-clamp-2 tracking-[0.2px]">
-                      {service.description}
-                    </p>
-                    
-                    <Link 
-                      to={service.link}
-                      className="inline-flex items-center text-primary font-medium hover:underline transition-all"
-                    >
-                      LIRE LA SUITE
-                      <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
